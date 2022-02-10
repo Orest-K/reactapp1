@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import SingleUserComponent from "../SingleUser/SingleUserComponent";
+import {UserService} from "../../../services/UserService";
 
 class AllUsersComponent extends Component {
+
+    userService = new UserService()
+
+
     state = {users: [], chosenUser: null};
 
     onChoseUser = (id) => {
-        let {users} = this.state;
-        let find = users.find(value => value.id === id);
-        this.setState({chosenUser: find});
+       this.userService.getUsersById(id).then(value => this.setState({chosenUser: value}))
     }
 
     render() {
@@ -26,11 +29,7 @@ class AllUsersComponent extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(users => {
-                this.setState({users})
-            });
+        this.userService.getAllUsers().then(value => this.setState({users: value}))
     }
 }
 
