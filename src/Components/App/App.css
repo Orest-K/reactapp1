@@ -1,0 +1,19 @@
+nav{
+    padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    background: azure;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.app-route{
+    width: 1174px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background: #8080801c;
+}
