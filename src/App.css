@@ -11,9 +11,8 @@ nav a{
     color: black;
     font-size: 20px;
 }
-.app-route{
+.app-content{
     width: 1174px;
     margin: 0px auto;
-    padding: 20px 30px;
     background: #8080801c;
 }

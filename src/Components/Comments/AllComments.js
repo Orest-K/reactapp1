@@ -1,24 +1,20 @@
-import React, {Component} from 'react';
-import CommentsService from "../../services/CommentsService";
+import React, {useEffect, useState} from 'react';
 import SingleComment from "./SingleComment";
+import {allComments} from "../../services/comments.service";
 
-class AllComments extends Component {
-    commentService = new CommentsService()
-    state = {comments:[]}
-    async componentDidMount() {
-        await this.commentService.getAllComments().then(value => this.setState({comments: value}))
-    }
 
-    render() {
-        let {comments} = this.state
-        return (
-            <div>
-                {
-                    comments.map(value => <SingleComment item={value} key={value.id}/>)
-                }
-            </div>
-        );
-    }
+export default function AllComments () {
+
+    let [comments, setComment] = useState([])
+    useEffect(() =>{
+        allComments().then(value => setComment(value.data))
+    },[])
+
+    return (
+        <div>
+            {
+                comments.map(value => <SingleComment item={value} key={value.id}/>)
+            }
+        </div>
+    );
 }
-
-export default AllComments;

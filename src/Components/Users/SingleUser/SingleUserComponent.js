@@ -1,16 +1,13 @@
-import React, {Component} from 'react';
-import {Link, withRouter} from "react-router-dom";
+import {Link} from "react-router-dom";
+import './userStyle.css';
+import userImage from './user.png';
 
-class SingleUserComponent extends Component {
-
-    render() {
-        let {item} = this.props
-        return (
-            <p>
-                {item.name} - <Link to={`/users/${item.id}`}>details</Link>
-            </p>
+export default function SingleUserComponent ({item}) {
+    let {id,name} = item
+    return (
+            <div className={'userItem'}>
+                <img className={'userIco'} src={userImage}/>
+                {name} - <Link to={id.toString()} state={{...item}}>details</Link>
+            </div>
         );
-    }
 }
-
-export default SingleUserComponent;

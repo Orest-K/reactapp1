@@ -1,33 +1,21 @@
-import React, {Component} from 'react';
 import SiglePost from "../SinglPost/SiglePost";
-import {PostServis} from "../../../services/PostServis";
+import {useEffect, useState} from "react";
+import {getAllPosts} from "../../../services/post.servis";
 
-class AllPosts extends Component {
-    postServis = new PostServis()
 
-    state = {posts: [], chosenPost: null};
+export default function AllPosts () {
 
-    onChosePost = (id) =>{
-        this.postServis.getPostById(id).then(value => this.setState({chosenPost: value}))
-    }
+    let [posts, setPosts] = useState([])
+    useEffect(()=>{
+        getAllPosts().then(value => setPosts(value.data))
+    },[])
 
-    render() {
-        let {posts, chosenPost} = this.state;
-        return (
-            <div>
-                {
-                    posts.map(post => <SiglePost item={post} key={post.id} chose={this.onChosePost}/>)
-                }
-                {
-                    chosenPost && <h1>{chosenPost.id}-{chosenPost.body}</h1>
-                }
-            </div>
-        );
-    }
-
-    componentDidMount() {
-       this.postServis.getAllPosts().then(value => this.setState({posts:value}))
-    }
+    return (
+        <div>
+            {
+            posts.map(post => <SiglePost item={post} key={post.id}/>)
+            }
+        </div>
+    );
 }
 
-export default AllPosts;

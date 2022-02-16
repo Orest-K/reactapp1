@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.layoutBody{}
+.layoutMenu{
+  background: rgba(255, 127, 80, 0.53);
+  padding: 20px;
+  margin: 0px 10px 0 0px;
+  height: fit-content;
+  width: 1134px;
+}
+.layoutMenu a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin: 5px;
+}
+.layoutContent{
+  padding: 20px 30px;
+}
