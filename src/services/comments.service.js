@@ -7,6 +7,6 @@ let axiosInstans = axios.create({
 
 const allComments = () =>{return axiosInstans.get('/')}
 
-const singlComent = (id) =>{return axiosInstans.get(`/${id}`)}
+const singleComment = (id) =>{return axiosInstans.get(`/${id}`)}
 
-export {allComments, singlComent}
+export {allComments, singleComment}

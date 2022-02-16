@@ -1,5 +1,5 @@
 export default function Home(){
     return(
-        <div>HOME</div>
+        <div>Задеплоїв єтіть його</div>
     )
 }

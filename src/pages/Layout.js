@@ -6,9 +6,9 @@ export default function Layout(){
     return(
         <section className={'layoutBody'}>
             <aside className={'layoutMenu'}>
+                <NavLink to={'posts'}>Posts</NavLink>
                 <NavLink to={'users'}>Users</NavLink>
                 <NavLink to={'albums'}>Albums</NavLink>
-                <NavLink to={'posts'}>Posts</NavLink>
             </aside>
             <div className={'layoutContent'}>
                 <Outlet/>

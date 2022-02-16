@@ -1,5 +1,7 @@
+import AllPosts from "../Components/Posts/AllPosts/AllPosts";
+
 export default function Posts(){
     return(
-        <div>posts</div>
+        <div><AllPosts/></div>
     )
 }
